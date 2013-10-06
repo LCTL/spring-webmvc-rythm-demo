@@ -1,0 +1,9 @@
+@args Form form, String name, String label, String labelFor = name
+
+<div class="form-group @(form.hasError(name) ? "has-error": "")">
+    <label for="@labelFor" class="col-lg-2 control-label">@message(label)</label>
+    <div class="col-lg-10">
+        @renderBody()
+        <span class="msg">@form.getErrorMessage(name)</span>
+    </div>
+</div>

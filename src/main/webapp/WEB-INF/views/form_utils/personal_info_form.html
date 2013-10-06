@@ -1,0 +1,65 @@
+@*
+    @author Lawrence Cheung
+*@
+
+@extends("template", title: "form.personalInfo.title")
+
+@args Form form
+
+@message("form.personalInfo.title").assign("title")
+
+<div class="container">
+
+    <h1>@title</h1>
+    
+    <section class="row">
+        
+        <div class="col-lg-8 col-lg-offset-2">
+        
+            @url("/form-utils/input-text.html").assign("formActionUrl")
+        
+            @htmlForm({action:formActionUrl, sclass: "form-horizontal"}){
+                
+                @if (form.isActionSuccess()){
+                    
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                            &times;
+                        </button>
+                        
+                        <p>@message("form.message.updated")</p>
+                    </div>
+                    
+                }
+                
+                @comp.formGroup({form:form, name:"email", label:"form.field.email"}){
+                    @inputText({form:form, name:"email", sclass:"form-control col-lg-5"})
+                }
+                
+                @comp.formGroup({form:form, name:"firstName", label:"form.field.firstName"}){
+                    @inputText({form:form, name:"firstName", sclass:"form-control col-lg-5"})
+                }
+                
+                @comp.formGroup({form:form, name:"lastName", label:"form.field.lastName"}){
+                    @inputText({form:form, name:"lastName", sclass:"form-control col-lg-5"})
+                }
+                
+                <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <button type="submit" class="btn btn-primary btn-default">
+                            @message("form.button.submit")
+                        </button>
+                        
+                        <a href="@url("/form-utils/input-text-existing-data.html")" class="btn btn-default">
+                            @message("page.formUtils.inputText.existingDataPage")
+                        </a>
+                    </div>
+                </div>
+                
+            }
+        
+        </div>
+        
+    </section>
+   
+</div>

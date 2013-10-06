@@ -45,7 +45,16 @@
                     </ul>
                 </li>
                 
-                <li><a href="#">@message("navbar.formUtils.title")</a></li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@message("navbar.formUtils.title")<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="@url("/form-utils/input-text.html")">@message("page.formUtils.inputText.title")</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                
             </ul>
         </div>
     </div>

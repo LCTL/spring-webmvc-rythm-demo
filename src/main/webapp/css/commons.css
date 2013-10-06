@@ -27,3 +27,7 @@ h1{
 .octocat{
     width: 150px;
 }
+
+.form-group.has-error .msg{
+    color: #b94a48;
+}
