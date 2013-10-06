@@ -1,0 +1,52 @@
+@*
+    @author Lawrence Cheung
+*@
+
+<nav class="navbar navbar-default navbar-top" role="navigation">
+    
+    <div class="container">
+    
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="@url("/")">@message("navbar.brand")</a>
+        </div>
+    
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@message("navbar.builtInTag.title")<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="@url("/tag-demo/message.html")">@message("navbar.builtInTag.message")</a>
+                        </li>
+                        <li>
+                            <a href="@url("/tag-demo/url.html")">@message("navbar.builtInTag.url")</a>
+                        </li>
+                        <li>
+                            <a href="@url("/tag-demo/full-url.html")">@message("navbar.builtInTag.fullUrl")</a>
+                        </li>
+                        <li>
+                            <a href="@url("/tag-demo/date-format.html")">@message("navbar.builtInTag.dateFormat")</a>
+                        </li>
+                        <li>
+                            <a href="@url("/tag-demo/cookie-value.html")">@message("navbar.builtInTag.cookieValue")</a>
+                        </li>
+                        <li>
+                            <a href="@url("/tag-demo/csrf-token.html")">@message("navbar.builtInTag.csrfToken")</a>
+                        </li>
+                        <li>
+                            <a href="#">@message("navbar.builtInTag.secured")</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li><a href="#">@message("navbar.formUtils.title")</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

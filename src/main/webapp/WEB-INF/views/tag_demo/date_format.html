@@ -1,0 +1,57 @@
+@*
+    @author Lawrence Cheung
+*@
+
+@extends("template", title: "page.tagDemo.dateformat.title")
+
+<div class="container">
+
+    <h1>@message("page.tagDemo.dateformat.title")</h1>
+    
+    <p>@message("page.tagDemo.dateformat.desc")</p>
+    
+    @{
+        Date date = new Date();
+    }
+    
+    <section class="row">
+        
+        <div class="col-lg-12">
+            
+            <h4>@message("page.tagDemo.dateformat.defaultDateFormat")</h4>
+            
+<pre>
+    @@dateFormat(date)
+</pre>
+            
+            @dateFormat(date).assign("defaultResult")
+            
+<pre>
+    @message("page.tagDemo.result", defaultResult)
+</pre>
+            
+        </div>
+        
+    </section>
+    
+    <section class="row">
+        
+        <div class="col-lg-12">
+            
+            <h4>@message("page.tagDemo.dateformat.customDateFormat")</h4>
+            
+<pre>
+    @@dateFormat({date, format: "dd-MM-yyyy HH:mm:ss:SSS"})
+</pre>
+            
+            @dateFormat({date, format: "dd-MM-yyyy HH:mm:ss:SSS"}).assign("customResult")
+            
+<pre>
+    @message("page.tagDemo.result", customResult)
+</pre>
+            
+        </div>
+        
+    </section>
+
+</div>

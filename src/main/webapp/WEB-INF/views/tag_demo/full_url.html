@@ -1,0 +1,34 @@
+@*
+    @author Lawrence Cheung
+*@
+
+@extends("template", title: "page.tagDemo.fullurl.title")
+
+<div class="container">
+
+    <h1>@message("page.tagDemo.fullurl.title")</h1>
+    
+    <section class="row">
+        
+        <div class="col-lg-12">
+            
+<pre>
+    &lt;link rel=stylesheet type=&quot;text/css&quot; href=&#39;@@fullurl(&quot;/css/bootstrap.min.css&quot;)&#39; /&gt;
+</pre>
+
+            @fullUrl("/css/bootstrap.min.css").assign("cssUrl")
+            
+            @{
+                String result = 
+                    "&lt;link rel=stylesheet type=&quot;text/css&quot; href=&#39;" + cssUrl + "&#39; /&gt;";
+            }
+            
+<pre>
+    @message("page.tagDemo.result", result)
+</pre>
+            
+        </div>
+        
+    </section>
+
+</div>

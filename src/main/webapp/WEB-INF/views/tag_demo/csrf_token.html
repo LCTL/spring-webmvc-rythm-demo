@@ -1,0 +1,91 @@
+@*
+    @author Lawrence Cheung
+*@
+
+@extends("template", title: "page.tagDemo.csrfToken.title")
+
+<div class="container">
+
+    <h1>@message("page.tagDemo.csrfToken.title")</h1>
+    
+    <section class="row">
+        
+        <div class="col-lg-12">
+            
+            <h4>@message("page.tagDemo.csrfToken.config")</h4>
+            
+<pre>
+    &lt;mvc:interceptors&gt;
+        &lt;bean class=&quot;com.ctlok.springframework.web.servlet.view.rythm.interceptor.CsrfTokenInterceptor&quot; /&gt;
+    &lt;/mvc:interceptors&gt;
+</pre>
+            
+ 
+        </div>
+        
+    </section>
+    
+    <section class="row">
+        
+        <div class="col-lg-12">
+            
+            <h4>@message("page.tagDemo.csrfToken.form")</h4>
+            
+<pre>
+    &lt;form method=&quot;post&quot; action=&quot;@@url("/register.html")&quot;&gt;
+        @@hiddenCsrfToken()
+    &lt;/form&gt;
+</pre>
+            
+<pre>
+    @message("page.tagDemo.result", "")
+    
+    &lt;form method=&quot;post&quot; action=&quot;@url("/register.html")&quot;&gt;
+        &lt;input type="hidden" value="@csrfToken()" name="_t"/&gt;
+    &lt;/form&gt;
+</pre>
+            
+        </div>
+        
+    </section>
+    
+    <section class="row">
+        
+        
+        <div class="col-lg-12">
+            
+            <h4>@message("page.tagDemo.csrfToken.js")</h4>
+            
+<pre>
+    var token = "@@csrfToken()";
+    var data = {
+        _t: token,
+        username: "username",
+        password: "password"
+    }
+    
+    $.post("@@url("/register.html")", data, function(result){
+        console.log(result);
+    });
+</pre>
+            
+<pre>
+    @message("page.tagDemo.result", "")
+    
+    var token = "@csrfToken()";
+    var data = {
+        _t: token,
+        username: "username",
+        password: "password"
+    }
+    
+    $.post("@url("/register.html")", data, function(result){
+        console.log(result);
+    });
+</pre>
+            
+        </div>
+        
+    </section>
+
+</div>

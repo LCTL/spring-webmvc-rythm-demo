@@ -1,0 +1,49 @@
+@*
+    @author Lawrence Cheung
+*@
+
+@extends("template", title: "page.tagDemo.fullurl.title")
+
+<div class="container">
+
+    <h1>@message("page.tagDemo.cookievalue.title")</h1>
+    
+    <section class="row">
+        
+        <div class="col-lg-12">
+            
+<pre>
+    @@cookieValue("mode").assign("mode")
+    
+    @@if("dark".equalsIgnoreCase(mode.toString())){
+        
+        &lt;link rel=stylesheet type=&quot;text/css&quot; href=&#39;@@url(&quot;/css/dark.css&quot;)&#39; /&gt;
+        
+    }else{
+        
+        &lt;link rel=stylesheet type=&quot;text/css&quot; href=&#39;@@url(&quot;/css/light.css&quot;)&#39; /&gt;
+        
+    }
+</pre>
+            
+            @cookieValue("mode").assign("mode")
+            @url("/css/dark.css").assign("darkCss")
+            @url("/css/light.css").assign("lightCss")
+            @{
+                String result = null;
+                if("dark".equalsIgnoreCase(mode.toString())){
+                    result = "&lt;link rel=stylesheet type=&quot;text/css&quot; href=&#39;" + darkCss + "&#39; /&gt;";
+                }else{
+                    result = "&lt;link rel=stylesheet type=&quot;text/css&quot; href=&#39;" + lightCss + "&#39; /&gt;";
+                }
+            }
+
+<pre>
+    @message("page.tagDemo.result", result)
+</pre>
+            
+        </div>
+        
+    </section>
+
+</div>

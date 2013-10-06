@@ -1,0 +1,29 @@
+footer{
+    border-top: solid 1px #f0f0f0;
+    margin-top: 60px;
+    padding:60px 0px;
+}
+
+section{
+    margin:20px 0;
+}
+
+pre{
+    margin:30px 0px;
+}
+
+h1{
+    margin-bottom: 30px;
+}
+
+.navbar-top{
+    margin-bottom: 0px;
+}
+
+.github-desc{
+    margin-top: 40px;
+}
+
+.octocat{
+    width: 150px;
+}

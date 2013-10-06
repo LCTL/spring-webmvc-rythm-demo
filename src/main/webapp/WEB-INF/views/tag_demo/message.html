@@ -1,0 +1,152 @@
+@*
+    @author Lawrence Cheung
+*@
+
+@extends("template", title: "page.tagDemo.message.title")
+
+<div class="container">
+
+    <h1>@message("page.tagDemo.message.title")</h1>
+
+    <section class="row">
+        
+        <div class="col-lg-12">
+               
+            <h4>@message("page.tagDemo.message.propertiesFile")</h4> 
+                
+<pre>
+    message.helloWorld=Hello World!
+    message.helloName=Hello {0}!
+</pre>
+            
+<pre>
+    message.helloWorld=Bonjour tout le monde!
+    message.helloName=Bonjour {0}!
+</pre>
+                
+        </div>
+        
+    </section>
+    
+    <section class="row">
+    
+        <div class="col-lg-12">
+            
+            <h4>@message("page.tagDemo.message.withoutArgs")</h4>
+            
+<pre>
+    @@message("message.helloWorld")
+</pre>
+            
+            @message("message.helloWorld").assign("helloWorldResult")
+            
+<pre>
+    @message("page.tagDemo.result", helloWorldResult)
+</pre>
+            
+        </div>
+            
+    </section>
+
+    <section class="row">
+    
+        <div class="col-lg-12">
+            
+            <h4>@message("page.tagDemo.message.withArgs")</h4>
+            
+<pre>
+    @@message("message.helloName", "Lawrence")
+</pre>
+            
+            @message("message.helloName", "Lawrence").assign("helloNameResult")
+            
+<pre>
+    @message("page.tagDemo.result", helloNameResult)
+</pre>
+            
+        </div>
+            
+    </section>
+    
+    <section class="row">
+    
+        <div class="col-lg-12">
+            
+            <h4>@message("page.tagDemo.message.defaultMsg")</h4>
+            
+<pre>
+    @@message({code: "message.code.null", default: "Output me if code not found"})
+</pre>
+            
+            @message({code: "message.code.null", default: "Output me if code not found"}).assign("defaultMsgResult")
+            
+<pre>
+    @message("page.tagDemo.result", defaultMsgResult)
+</pre>
+            
+        </div>
+            
+    </section>
+    
+    <section class="row">
+    
+        <div class="col-lg-12">
+            
+            <h4>@message("page.tagDemo.message.locale")</h4>
+            
+<pre>
+    @@message({code: "message.helloWorld", locale: "fr"})
+</pre>
+            
+            @message({code: "message.helloWorld", locale: "fr"}).assign("withLocaleResult")
+            
+<pre>
+    @message("page.tagDemo.result", withLocaleResult)
+</pre>
+            
+        </div>
+            
+    </section>
+    
+    <section class="row">
+    
+        <div class="col-lg-12">
+            
+            <h4>@message("page.tagDemo.message.localeArgs")</h4>
+            
+<pre>
+    @@message({code: "message.helloName", locale: "fr", "Lawrence"})
+</pre>
+            
+            @message({code: "message.helloName", locale: "fr", "Lawrence"}).assign("withLocaleArgsResult")
+            
+<pre>
+    @message("page.tagDemo.result", withLocaleArgsResult)
+</pre>
+            
+        </div>
+            
+    </section>
+    
+    <section class="row">
+    
+        <div class="col-lg-12">
+            
+            <h4>@message("page.tagDemo.message.defaultMsgLocale")</h4>
+            
+<pre>
+    @@message({code: "message.code.null", default: "Output me if code not found", locale: "fr"})
+</pre>
+            
+            @message({code: "message.code.null", default: "Output me if code not found", locale: "fr"}).assign("defaultMsgLocaleResult")
+            
+<pre>
+    @message("page.tagDemo.result", defaultMsgLocaleResult)
+</pre>
+            
+        </div>
+            
+    </section>
+    
+
+</div>

@@ -1,0 +1,16 @@
+@*
+    @author Lawrence Cheung
+*@
+
+@extends("template", title: "site.title")
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>@message("site.title")</h1>
+        <p class="github-desc">
+            <img src="@url("/images/octocat.png")" class="octocat" />
+            <a href="https://github.com/lawrence0819/spring-webmvc-rythm" 
+                class="btn btn-primary btn-lg" target="_blank">@message("page.main.button.github")</a>
+        </p>
+    </div>
+</div>
